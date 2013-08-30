@@ -36,7 +36,8 @@ class BITGoogleExtension extends Extension
     
     foreach ( array( 'app_name', 'client_id', 'client_secret', 'simple_api_access', 'state', 'access_type',
         'approval_prompt', 'scopes' ) as $attribute )
-      $container->setParameter( 'bit_google.' . $attribute, $config[ $attribute ] );
+      if ( array_key_exists( $attribute, $config ) )
+        $container->setParameter( 'bit_google.' . $attribute, $config[ $attribute ] );
     
     /* if ( array_key_exists( 'callback_route', $config ) )
       $container->setParameter( 'fos_google.' . $attribute, $config['callback_route'] );
