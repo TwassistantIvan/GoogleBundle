@@ -12,6 +12,7 @@ namespace BIT\GoogleBundle\Google;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Google_HttpRequest;
+use Google_AuthException;
 use SimpleXMLElement;
 
 /**
@@ -107,7 +108,16 @@ class GoogleContact
   public function getContacts( $maxResult = 9999 )
   {
     $url = "https://www.google.com/m8/feeds/contacts/default/full?max-results=" . $maxResult;
-    $val = $this->api->getIo( )->authenticatedRequest( new Google_HttpRequest( $url) );
+    
+    try
+    {
+      $val = $this->api->getIo( )->authenticatedRequest( new Google_HttpRequest( $url) );
+    }
+    catch ( Google_AuthException $e )
+    {
+      return null;
+    }
+    
     return $this->parse( $val->getResponseBody( ) );
   }
 }
