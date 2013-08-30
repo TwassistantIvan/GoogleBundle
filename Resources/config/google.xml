@@ -11,6 +11,7 @@
 				<argument key="app_name">%bit_google.app_name%</argument>
 				<argument key="client_id">%bit_google.client_id%</argument>
 				<argument key="client_secret">%bit_google.client_secret%</argument>
+				<argument key="simple_api_access">%bit_google.simple_api_access%</argument>
 				<argument key="state">%bit_google.state%</argument>
 				<argument key="access_type">%bit_google.access_type%</argument>
 				<argument key="scopes">%bit_google.scopes%</argument>
@@ -22,6 +23,9 @@
 		<service id="bit_google.contact" class="%bit_google.contact.class%">
 			<argument type="service" id="bit_google.api" />
 		</service>
+		<service id="bit_google.url" class="%bit_google.url.class%">
+      <argument type="service" id="bit_google.api" />
+    </service>
 		<service id="bit_google.helper" class="%bit_google.helper.class%">
 			<argument type="service" id="templating" />
 			<argument type="service" id="bit_google.api" />

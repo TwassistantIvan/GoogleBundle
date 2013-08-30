@@ -28,7 +28,8 @@ class Configuration implements ConfigurationInterface
     $rootNode->fixXmlConfig( 'permission', 'permissions' )->children( )// childrens
         ->scalarNode( 'app_name' )->isRequired( )->cannotBeEmpty( )->end( ) // app name
         ->scalarNode( 'client_id' )->isRequired( )->cannotBeEmpty( )->end( ) // client id
-        ->scalarNode( 'client_secret' )->cannotBeEmpty( )->end( ) // client secret
+        ->scalarNode( 'client_secret' )->isRequired( )->cannotBeEmpty( )->end( ) // client secret
+        ->scalarNode( 'simple_api_access' )->cannotBeEmpty( )->end( ) // simple API access
         ->scalarNode( 'callback_route' )->cannotBeEmpty( )->end( ) // redirect callback
         ->scalarNode( 'callback_url' )->isRequired( )->cannotBeEmpty( )->end( ) // redirect callback
         ->arrayNode( 'scopes' )->addDefaultsIfNotSet( )->children( ) // scopes by api
@@ -41,6 +42,7 @@ class Configuration implements ConfigurationInterface
         ->arrayNode( 'class' )->addDefaultsIfNotSet( )->children( ) // clasess
         ->scalarNode( 'api' )->defaultValue( 'BIT\GoogleBundle\Google\GoogleSessionPersistence' )->end( ) // api
         ->scalarNode( 'contact' )->defaultValue( 'BIT\GoogleBundle\Google\GoogleContact' )->end( ) // contact
+        ->scalarNode( 'url' )->defaultValue( 'BIT\GoogleBundle\Google\GoogleURLShorter' )->end( ) // url
         ->scalarNode( 'helper' )->defaultValue( 'BIT\GoogleBundle\Templating\Helper\GoogleHelper' )->end( ) // template helper
         ->scalarNode( 'twig' )->defaultValue( 'BIT\GoogleBundle\Twig\Extension\GoogleExtension' )->end( ) // twig ext
         ->end( ) // end clasess

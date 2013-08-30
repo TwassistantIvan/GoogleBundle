@@ -22,7 +22,7 @@ class GoogleAuthenticationEntryPoint implements AuthenticationEntryPointInterfac
 {
   protected $googleApi;
   
-  public function __construct( \Google_Client $googleApi )
+  public function __construct( \apiClient $googleApi )
   {
     $this->googleApi = $googleApi;
   }

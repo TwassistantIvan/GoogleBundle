@@ -62,6 +62,8 @@ class GoogleSessionPersistence extends Google_Client
     $this->setClientId( $config[ "client_id" ] );
     $this->setClientSecret( $config[ "client_secret" ] );
     $this->setRedirectUri( $config[ "callback_url" ] );
+    if ( array_key_exists( "simple_api_access", $config ) )
+      $this->setDeveloperKey( $config[ "simple_api_access" ] );
     
     $this->prepareScopes( $config[ "scopes" ] );
     $this->setState( $config[ "state" ] );
