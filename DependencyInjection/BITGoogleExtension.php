@@ -34,10 +34,17 @@ class BITGoogleExtension extends Extension
     foreach ( array( 'api', 'contact', 'url', 'helper', 'twig' ) as $attribute )
       $container->setParameter( 'bit_google.' . $attribute . '.class', $config[ 'class' ][ $attribute ] );
     
-    foreach ( array( 'app_name', 'client_id', 'client_secret', 'simple_api_access', 'state', 'access_type',
-        'approval_prompt', 'scopes' ) as $attribute )
-      if ( array_key_exists( $attribute, $config ) )
+    foreach ( array( 'app_name', 'client_id', 'client_secret', 'state', 'access_type', 'approval_prompt', 'scopes' ) as $attribute )
+      $container->setParameter( 'bit_google.' . $attribute, $config[ $attribute ] );
+    
+    // optional parameters
+    foreach ( array( 'simple_api_access' ) as $attribute )
+    {
+      if ( array_key_exists( 'simple_api_access', $config ) )
         $container->setParameter( 'bit_google.' . $attribute, $config[ $attribute ] );
+      else
+        $container->setParameter( 'bit_google.' . $attribute, '' );
+    }
     
     /* if ( array_key_exists( 'callback_route', $config ) )
       $container->setParameter( 'fos_google.' . $attribute, $config['callback_route'] );
