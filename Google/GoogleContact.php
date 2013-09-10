@@ -23,6 +23,8 @@ use SimpleXMLElement;
  */
 class GoogleContact
 {
+  const CONTACTS_API_URL = 'https://www.google.com/m8/feeds/contacts/default/full?';
+
   private $api;
 
   public function __construct( Google_Client $api )
@@ -106,9 +108,17 @@ class GoogleContact
     return $parent[ 0 ];
   }
 
-  public function getContacts( $maxResult = 9999 )
+  public function getContacts($startIndex = null, $maxResults = null)
   {
-    $url = "https://www.google.com/m8/feeds/contacts/default/full?max-results=" . $maxResult;
+    $urlParams = array();
+    if (null !== $startIndex) {
+      $urlParams['start-index'] = $startIndex;
+    }
+    if (null !== $maxResult) {
+      $urlParams['max-results'] = $maxResults;
+    }
+
+    $url = self::CONTACTS_API_URL . http_build_query($urlParams);
 
     try
     {
