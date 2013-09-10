@@ -11,6 +11,7 @@
 namespace BIT\GoogleBundle\Google;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Google_Client;
 use Google_UrlshortenerService;
 use Google_Url;
 
@@ -22,7 +23,7 @@ class GoogleURLShorter
 {
   private $api;
   
-  public function __construct( GoogleSessionPersistence $api )
+  public function __construct( Google_Client $api )
   {
     $this->api = $api;
   }
