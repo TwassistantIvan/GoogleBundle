@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
+use Google_Client;
 
 /**
  * GoogleAuthenticationEntryPoint starts an authentication via Google.
@@ -22,7 +23,7 @@ class GoogleAuthenticationEntryPoint implements AuthenticationEntryPointInterfac
 {
   protected $googleApi;
   
-  public function __construct( \apiClient $googleApi )
+  public function __construct( Google_Client $googleApi )
   {
     $this->googleApi = $googleApi;
   }
