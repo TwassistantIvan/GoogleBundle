@@ -18,7 +18,6 @@ use SimpleXMLElement;
 
 /**
  * Implements Google Contact.
- *
  */
 class GoogleContact
 {
@@ -107,7 +106,7 @@ class GoogleContact
     return $parent[ 0 ];
   }
   
-  public function getContacts( $startIndex = null, $maxResults = null )
+  public function getContacts( $startIndex = null, $maxResults = 9999 )
   {
     $urlParams = array( );
     

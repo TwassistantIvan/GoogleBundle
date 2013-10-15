@@ -1,11 +1,9 @@
 <?xml version="1.0" ?>
 
 <container xmlns="http://symfony.com/schema/dic/services"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
-
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 	<services>
-
 		<service id="bit_google.api" class="%bit_google.api.class%">
 			<argument type="collection">
 				<argument key="app_name">%bit_google.app_name%</argument>
@@ -24,8 +22,8 @@
 			<argument type="service" id="bit_google.api" />
 		</service>
 		<service id="bit_google.url" class="%bit_google.url.class%">
-      <argument type="service" id="bit_google.api" />
-    </service>
+			<argument type="service" id="bit_google.api" />
+		</service>
 		<service id="bit_google.helper" class="%bit_google.helper.class%">
 			<argument type="service" id="templating" />
 			<argument type="service" id="bit_google.api" />
