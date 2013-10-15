@@ -73,7 +73,6 @@ class GoogleSessionPersistence extends Google_Client
     
     $this->session = $session;
     $this->prefix = $prefix;
-    $this->session->start( );
   }
   
   public function getOAuth( )
