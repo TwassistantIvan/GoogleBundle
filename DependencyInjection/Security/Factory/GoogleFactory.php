@@ -52,7 +52,7 @@ class GoogleFactory extends AbstractFactory
     return $authProviderId;
   }
 
-  protected function createEntryPoint( ContainerBuilder $container, $id, $config, $defaultEntryPointId )
+  protected function createEntryPoint( $container, $id, $config, $defaultEntryPointId )
   {
     $entryPointId = 'bit_google.security.authentication.entry_point.' . $id;
     $definitionDecorator = new DefinitionDecorator ( 'bit_google.security.authentication.entry_point' );
