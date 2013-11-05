@@ -1,7 +1,7 @@
 Introduction
 ============
 
-Note: this branch is compatible with releases of Symfony2 >= v2.3
+Note: this branch is compatible with releases of Symfony2 >= v2.1
 
 Installation
 ============
