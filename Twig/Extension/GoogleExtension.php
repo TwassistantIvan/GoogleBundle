@@ -5,14 +5,14 @@
  */
 namespace BIT\GoogleBundle\Twig\Extension;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Container;
 
 class GoogleExtension extends \Twig_Extension
 {
 
   protected $container;
 
-  public function __construct( ContainerBuilder $container )
+  public function __construct( Container $container )
   {
     $this->container = $container;
   }
