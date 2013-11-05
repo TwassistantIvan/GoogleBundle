@@ -5,7 +5,6 @@
  */
 namespace BIT\GoogleBundle\Google;
 
-use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Google_Client;
 use Google_Oauth2Service as Service;

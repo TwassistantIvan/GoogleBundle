@@ -242,7 +242,7 @@ to the provider id in the "provider" section in the config.yml:
 
 	      if ( count( $this->validator->validate( $user, 'Google' ) ) )
 	      {
-		// TODO: the user was found obviously, but doesnt match our expectations, do something smart
+		
 		throw new UsernameNotFoundException( 'The google user could not be stored');
 	      }
 	      $this->userManager->updateUser( $user );
